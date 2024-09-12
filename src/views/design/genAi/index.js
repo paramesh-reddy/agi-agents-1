@@ -57,7 +57,7 @@ const GenAi = () => {
         selected_room_type: "",
         number_of_room_designs: '',
         additional_instructions: "",
-        // user: localStorage.getItem('username')
+        user_name: localStorage.getItem('username')
     })
 
 
@@ -103,12 +103,12 @@ const GenAi = () => {
         setImage(null)
         try {
             const response = await axios.post(
-                `http://3.132.248.171:4500/getImage`,
+                ` https://otamat.com/api/getImage`,
                 formData,
                 {
                     headers: {
                         "Content-Type": "multipart/form-data",
-                        token:localStorage.getItem('token')
+                        // token:localStorage.getItem('token')
                     }
                 }
             );

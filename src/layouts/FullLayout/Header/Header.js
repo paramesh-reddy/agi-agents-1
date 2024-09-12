@@ -1,6 +1,6 @@
 import React from "react";
 //import { Link } from 'react-router-dom';
-
+import { useEffect } from "react";
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import AddToPhotosOutlinedIcon from '@mui/icons-material/AddToPhotosOutlined';
@@ -56,7 +56,14 @@ const Header = (props) => {
       navigate('/graph-view');
     }
   };
-
+  useEffect(() => {
+    const pathname = location.pathname;
+    if (pathname == "/start-design") {
+      setCurrentTab(0)
+    } else if (pathname === '/graph-view') {
+      setCurrentTab(1)
+    }
+  }, [location])
   console.log(location)
 
   return (
